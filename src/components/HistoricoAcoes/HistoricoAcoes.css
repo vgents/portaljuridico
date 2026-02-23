@@ -1,0 +1,188 @@
+@import '../../styles/theme.css';
+
+.historico-acoes {
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.historico-acoes-header {
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 2px solid #f0f0f0;
+  flex-shrink: 0;
+}
+
+.historico-acoes-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.historico-acoes-titulo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.historico-acoes-icon {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+}
+
+.historico-acoes-titulo {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.historico-acoes-btn-ver-tudo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary);
+  background-color: transparent;
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.historico-acoes-btn-ver-tudo:hover {
+  background-color: rgba(190, 163, 69, 0.1);
+  transform: translateX(2px);
+}
+
+.historico-acoes-lista {
+  flex: 1;
+  min-height: 0;
+  max-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  padding-right: var(--spacing-xs);
+}
+
+.historico-acoes-lista::-webkit-scrollbar {
+  width: 6px;
+}
+
+.historico-acoes-lista::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: var(--border-radius-sm);
+}
+
+.historico-acoes-lista::-webkit-scrollbar-thumb {
+  background: var(--color-gray-medium);
+  border-radius: var(--border-radius-sm);
+}
+
+.historico-acoes-lista::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+.historico-acoes-item {
+  display: flex;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background-color: #fafafa;
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-base);
+  border-left: 3px solid transparent;
+}
+
+.historico-acoes-item:hover {
+  background-color: #f5f5f5;
+  border-left-color: var(--color-primary);
+  transform: translateX(2px);
+}
+
+.historico-acoes-item-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+.historico-acoes-item-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.historico-acoes-item-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.historico-acoes-item-usuario {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.historico-acoes-item-hora {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  background-color: rgba(190, 163, 69, 0.1);
+  padding: 2px var(--spacing-xs);
+  border-radius: var(--border-radius-sm);
+  white-space: nowrap;
+}
+
+.historico-acoes-item-descricao {
+  font-size: var(--font-size-sm);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  line-height: 1.4;
+}
+
+.historico-acoes-item-icone {
+  font-size: var(--font-size-sm);
+  flex-shrink: 0;
+}
+
+.historico-acoes-item-recurso {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+  padding-left: var(--spacing-md);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.historico-acoes-item-tempo {
+  font-size: var(--font-size-xs);
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.historico-acoes-loading,
+.historico-acoes-vazio {
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: var(--font-size-sm);
+}

@@ -1,0 +1,39 @@
+@import './styles/theme.css';
+
+/* Barra de rolagem fina e em overlay (não desloca o conteúdo) */
+html {
+  overflow: overlay;
+}
+
+body {
+  overflow: overlay;
+}
+
+/* Firefox: barra fina */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-gray-medium, #6C757D) transparent;
+}
+
+/* WebKit (Chrome, Safari, Edge): barra fina e estilizada */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-gray-medium, #6C757D);
+  border-radius: 3px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-secondary-light, #4A4A4A);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}

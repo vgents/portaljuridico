@@ -1,0 +1,1274 @@
+
+Documento de Requisitos de Design 
+ 
+	•	Projeto
+Portal Jurídico - SESC DF
+
+Histórico de versões
+Data 
+Versão
+Descrição
+Solicitante
+Autor
+22/01/2026
+1.0
+Primeira versão do documento de requisitos de design, elaborado a partir do Documento de Escopo e Questionário de Especificação de Requisitos.
+Sesc DF
+Regis Lukas, Paulo Vieira. SEA Tecnologia
+23/01/2026
+1.1
+Ajustes de escopo após reunião: remoção de workflow de aprovação, simplificação de status, definição de autenticação e rastreabilidade
+Sesc DF
+Regis Lukas, Paulo Vieira. SEA Tecnologia
+5/02/2026
+1.2
+Definição dos tipos de usuários, adição da funcionalidade de gerar relatório, definição de campos obrigatórios para documentos, definição dos perfis de usuário e previsão de futuros tipos de documentos
+Sesc DF
+Regis Lukas, Paulo Vieira. SEA Tecnologia
+ 
+
+	•	Visão geral do sistema
+
+O Portal Jurídico é um sistema interno do SESC destinado à centralização, organização e consulta de Informativos Jurídicos de caráter consultivo e não vinculativo, produzidos pela Gerência Jurídica (GEJUR).
+
+O sistema não substitui atos normativos, nem pareceres de casos concretos, e tem como objetivo apoiar áreas técnicas e administrativas na elaboração de demandas institucionais, promovendo uniformização de entendimentos e segurança jurídica.
+
+O Portal não contempla fluxo de aprovação de informativos. A elaboração e aprovação ocorrem previamente no âmbito interno da GEJUR. O sistema é utilizado exclusivamente para publicação, consulta e gestão.
+
+Principais capacidades:
+	•	Busca simplificada de documentos, por nome, código, data, assunto ou qualquer valor relacionado.
+	•	Busca avançada com filtros combinados.
+	•	Visualização detalhada do documento.
+	•	Cadastro, edição, publicação e revogação de informativos (GEJUR).
+	•	Controle de acesso por perfil.
+	•	Registro de ações para rastreabilidade interna
+	•	Criação de relatório sobre quantidade de acessos, quantidade de documentos, documentos vigentes, etc
+
+	•	Escopo
+
+As funcionalidades previstas para a entrega estão listadas no documento de Definição de Escopo.
+
+
+	•	Fluxograma geral do sistema
+
+Link do Fluxograma
+
+
+	•	Organização dos Requisitos
+Os requisitos são estruturados da seguinte forma:
+	•	Épico (EP): Objetivo macro, que representa um grande conjunto de funcionalidades.
+	•	Feature (FT): Um módulo ou capacidade específica que atende parte do épico.
+	•	História de Usuário (HU): visão do usuário com detalhamento completo..
+	•	Requisito Funcional (RF): detalhe técnico e testável derivado da HU.
+
+
+	•	Épicos, Features e Histórias de Usuário
+EP01 – Consulta de Informativos Jurídicos
+FT01 —  Busca e Filtros
+HU001 – Buscar informativos jurídicos
+Como usuário interno autorizado
+Quero buscar informativos por diferentes critérios
+Para localizar rapidamente o entendimento desejado
+
+Atores:
+	•	Usuário Interno (áreas técnicas, gestores, fiscais, controladoria etc.)
+
+Pré-condições:
+	•	Usuário autenticado
+	•	Usuário com permissão de consulta
+
+Requisitos Funcionais:
+	•	RF05: Permitir busca por palavra-chave na ementa 
+	•	RF06: Permitir filtros por: 
+	•	Tipo de informativo
+	•	Categoria (Tema em questão)
+	•	Número
+	•	Data 
+	•	RF07: Permitir combinação de múltiplos filtros 
+	•	RF08: Permitir ordenação por número e data
+
+
+FT02 — Listagem de Informativos
+HU002 – Visualizar lista de informativos jurídicos
+Como usuário interno autorizado
+Quero visualizar a lista de informativos jurídicos publicados
+Para consultar entendimentos vigentes de forma rápida e organizada
+
+
+Requisitos Funcionais:
+	•	RF01: Exibir apenas informativos com status Vigente
+	•	RF02: Ordenar a lista por número e data de publicação
+	•	RF03: Indicar visualmente o status do informativo (Vigente / Revogado)
+	•	RF04: Informativos revogados devem aparecer tarjados, quando mantidos para histórico
+
+
+FT03 — Visualização do Informativo
+HU003 – Visualizar detalhes de um informativo
+Como usuário interno autorizado  Quero visualizar os detalhes completos de um informativo  Para compreender o entendimento jurídico publicado
+Requisitos Funcionais:
+	•	RF09: Exibir metadados do informativo: 
+	•	Número (Número automático)
+	•	Título
+	•	Ementa
+	•	Órgão emissor
+	•	Autoridade assinante
+	•	Data de publicação
+	•	Status
+	•	Descrição simplificada do documento 
+	•	RF10: Permitir acesso ao Documento (PDF) 
+	•	RF11: Indicar claramente quando o informativo estiver revogado
+
+EP02 – Gestão (GEJUR) - Documentos, Categorias, Usuários, Grupos de Usuários
+
+FT04 — Cadastro de Informativos
+HU003 – Cadastrar informativo jurídico
+Como Gerente da área (usuário da GEJUR) 	Quero cadastrar um novo informativo jurídico 	Para disponibilizá-lo para consulta interna
+
+Pré-condições:
+	•	Usuário com perfil de Gerente da Área ou Gerente Adjunto com permissão para realizar a ação, usuário deve estar  autenticado. 
+Requisitos Funcionais:
+	•	RF12: Exigir preenchimento de campos obrigatórios: 
+	•	Título
+	•	Ementa
+	•	Categoria (Select com opções de categoria)
+	•	Detalhes do documento (texto explicativo)
+	•	Órgão emissor
+	•	Autoridade assinante
+	•	Data de publicação 
+	•	RF13: Permitir upload de arquivo PDF 
+	•	RF14: Validar campos obrigatórios antes da publicação
+
+
+FT05 — Edição de Informativos
+HU005 – Editar informativo jurídico
+
+Como Gerente da área (usuário da GEJUR)  Quero editar um informativo antes da publicação ou para correção formal  Para manter a consistência das informações
+
+Pré-condições:
+	•	Usuário com perfil de Gerente da Área ou Gerente Adjunto com permissão para realizar a ação, usuário deve estar  autenticado.
+
+Requisitos Funcionais:
+	•	RF15: Permitir nova submissão apenas por usuários GEJUR 
+	•	RF16: A nova versão deve substituir a anterior. Bloquear edição de informativos já vigentes , exceto para correção formal 
+	•	RF17: Salvar versão anterior no histórico de versões
+
+FT06 — Publicação de Informativos
+HU006 – Publicar informativo jurídico
+Como Gerente da área (usuário da GEJUR) Quero publicar um informativo Para torná-lo disponível para consulta interna
+
+Pré-condições:
+	•	Usuário com perfil de Gerente da Área ou Gerente Adjunto com permissão para realizar a ação, usuário deve estar  autenticado.
+
+Requisitos Funcionais:
+	•	RF18: Assim que for publicado, terá o status como Vigente 
+	•	RF19: Tornar o informativo visível para usuários de consulta 
+	•	RF20: Registrar data de publicação automaticamente 
+Observação: o fluxo de elaboração e aprovação ocorre fora do sistema, no âmbito interno da GEJUR.
+
+FT07 — Revogação de Informativos
+HU007 – Revogar informativo jurídico
+Como Gerente da área (usuário da GEJUR) Quero revogar um informativo Para evitar sua utilização em novas decisões e indisponibilizando para consultas por usuários autenticados
+Pré-condições:
+	•	Usuário com perfil de Gerente da Área ou Gerente Adjunto com permissão para realizar a ação, usuário deve estar  autenticado.
+
+Requisitos Funcionais:
+	•	RF21: Alterar status para Revogado 
+	•	RF22: Retirar o informativo da consulta ativa 
+	•	RF23: Permitir manutenção opcional do informativo tarjado, apenas para histórico
+	•	RF24: Indicar claramente que o informativo não possui mais validade 
+
+EP03 – Segurança, Acesso e Rastreabilidade
+
+Objetivo do Épico:
+Garantir que o Portal Jurídico seja acessado exclusivamente por usuários internos autorizados, com perfis de acesso definidos, assegurando que apenas a Gerência Jurídica (GEJUR) possa gerenciar informativos, e que todas as ações relevantes realizadas no sistema sejam registradas para fins de rastreabilidade e controle interno.
+
+Este épico visa reforçar a segurança institucional, a transparência administrativa e a confiabilidade do uso dos Informativos Jurídicos, sem atribuir caráter jurídico vinculante aos registros do sistema.
+
+
+
+FT08 — Autenticação e Controle de Acesso
+HU008 – Acessar o portal jurídico
+  Como usuário interno do SESC,  Quero acessar o Portal Jurídico utilizando minhas credenciais institucionais,  Para consultar ou gerenciar informativos conforme meu perfil de acesso.
+Atores
+	•	Usuário interno do SESC com permissão.
+	•	Sistema de autenticação Institucional
+	•	Portal Jurídico 
+Entradas
+	•	Login institucional (LDAP)
+	•	Senha institucional 
+Pré-condições
+	•	Usuário possuir credenciais válidas na rede do SESC
+	•	Usuário possuir perfil autorizado para acesso ao Portal Jurídico
+
+Requisitos Funcionais:
+	•	RF30: Permitir autenticação por meio do método institucional já utilizado pelo SESC (LDAP)
+	•	RF31: Validar as credenciais antes de conceder acesso ao sistema
+	•	RF32: Impedir o acesso de usuários não autorizados
+	•	RF33: Identificar automaticamente o perfil do usuário autenticado
+	•	RF34: Redirecionar o usuário para a interface correspondente ao seu perfil
+	•	RF35: Exibir mensagem clara em caso de falha de autenticação
+FT09 — Perfis de Acesso e Permissões
+HU009 – Controlar acesso por grupos de usuário
+Descrição:
+Como sistema,
+Quero restringir o acesso às funcionalidades do Portal Jurídico conforme grupo de usuário,
+Para garantir que apenas usuários autorizados realizem ações administrativas.
+
+Atores:
+	•	Gerente da Área
+	•	Sistema
+
+Requisitos Funcionais:
+	•	RF36	Definir grupo com gerenciamento granular de permissões.
+	•	RF38	Ocultar funcionalidades administrativas para usuários sem permissão.
+	•	RF39	Bloquear tentativas de acesso direto a funções restritas.
+
+FT10 — Registro de Ações e Rastreabilidade
+HU010 – Registrar ações realizadas no sistema
+
+Descrição:
+Como administrador institucional,
+Quero que todas as ações relevantes realizadas no Portal Jurídico sejam registradas,
+Para permitir rastreabilidade e controle interno.
+
+Atores:
+	•	Usuário da GEJUR
+	•	Sistema
+
+
+Requisitos Funcionais:
+	•	RF40: Registrar ações de cadastro de informativos
+	•	RF41: Registrar ações de edição de informativos
+	•	RF42: Registrar ações de publicação de informativos
+	•	RF43: Registrar ações de revogação de informativos
+	•	RF44: Registrar data e hora da ação
+	•	RF45: Exibir mensagem clara em caso de falha de autenticação
+	•	RF46: Armazenar histórico de ações para consulta interna
+
+Pós-condições:
+	•	Ação registrada com sucesso
+	•	Log disponível para auditoria interna
+
+FT11 — Consulta de Histórico de Ações (GEJUR)
+HU011 – Consultar histórico de ações do sistema
+
+Descrição:
+Como usuário da Gerência Jurídica,
+Quero consultar o histórico de ações realizadas no Portal Jurídico,
+Para acompanhar alterações e garantir controle administrativo.
+
+Requisitos Funcionais:
+	•	RF47: Disponibilizar listagem de ações registradas 
+	•	RF48: Permitir filtros por usuário, tipo de ação e período
+	•	RF49: Restringir o acesso ao histórico apenas à GEJUR
+Observações de Escopo (validadas)
+	•	Logs possuem finalidade administrativa e interna
+	•	Sistema preparado para expansão futura 
+
+
+
+
+
+	•	Detalhamento das Histórias de Usuário
+HU001 – Visualizar lista de Informativos Jurídicos
+Descrição
+Como usuário interno autorizado
+Quero buscar informativos por diferentes critérios
+Para localizar rapidamente o entendimento desejado
+Atores
+	•	Usuário Interno (áreas técnicas, gestores, fiscais, controladoria etc.)
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Acesso ao Portal Jurídico após autenticação institucional
+	•	Ação de navegação para a página inicial ou lista de informativos
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil autorizado para consulta
+	•	Existir ao menos um Informativo Jurídico publicado no sistema
+Requisitos funcionais associados
+ID
+Descrição
+RF01
+Exibir lista de Informativos Jurídicos com status Publicado (Vigente)
+RF02
+Ocultar informativos não publicados
+RF03
+Ordenar a lista por número e data de publicação
+RF04
+Exibir informações resumidas do informativo (número, título, data e status)
+RF05
+Indicar visualmente informativos revogados quando mantidos para histórico
+RF06
+Permitir acesso à visualização detalhada do informativo
+RF07
+Impedir início quando o recadastramento do ano já estiver concluído
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário
+Acessa o Portal Jurídico após login
+2.
+Sistema
+Exibe a página inicial com a lista de Informativos Jurídicos publicados
+3.
+Sistema
+Apresenta os informativos ordenados por número e data
+4.
+Usuário
+Visualiza os informativos disponíveis
+5.
+Usuário
+Seleciona um informativo da lista
+6.
+Sistema
+Redireciona para a tela de visualização detalhada do informativo
+
+Caminhos Alternativos / Exceções
+
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Não existem informativos publicados
+Exibir mensagem: “Não há informativos jurídicos publicados no momento.”
+EXC01
+Falha na recuperação dos dados
+Exibir mensagem de erro genérica e orientar nova tentativa
+EXC02
+Usuário sem permissão de consulta
+Bloquear acesso e exibir mensagem de acesso não autorizado
+
+Saídas
+	•	Lista de Informativos Jurídicos exibida na interface
+	•	Mensagem informativa ou de erro, quando aplicável
+Pós-condições
+	•	Usuário visualiza os Informativos Jurídicos disponíveis
+	•	Nenhuma alteração é realizada nos dados do sistema
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	Base de Informativos previamente cadastrada e publicada pela GEJUR
+
+
+
+HU002 – Buscar Informativos Jurídicos
+
+Descrição
+Como usuário interno autorizado do SESC,
+Quero buscar Informativos Jurídicos por diferentes critérios,
+Para localizar rapidamente entendimentos jurídicos específicos, de acordo com o tema, número ou conteúdo da ementa.
+
+Atores
+	•	Usuário Interno do SESC
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Termo de busca (palavra-chave)
+	•	Seleção de filtros (tipo de informativo, assunto/tema, número, data)
+	•	Ação de executar a busca
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil autorizado para consulta
+	•	Existirem Informativos Jurídicos publicados no sistema
+
+Requisitos funcionais associados
+ID
+Descrição
+RF07
+Disponibilizar campo de busca por palavra-chave na ementa
+RF08
+Permitir aplicação de filtros por tipo de informativo
+RF09
+Permitir filtros por assunto/tema
+RF10
+Permitir filtro por número do informativo
+RF11
+Permitir filtro por data de publicação
+RF12
+Permitir combinação de múltiplos filtros
+RF13
+Exibir resultados apenas de informativos publicados
+RF14
+Permitir ordenação dos resultados por número e data
+RF15
+Exibir mensagem quando não houver resultados
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário
+Acessa a tela de busca de Informativos Jurídicos
+2.
+Sistema
+Exibe campo de busca e filtros disponíveis
+3.
+Usuário
+Insere palavra-chave e/ou seleciona filtros
+4.
+Usuário
+Aciona a busca
+5.
+Sistema
+Processa os critérios informados
+6.
+Sistema
+Exibe a lista de Informativos Jurídicos correspondentes
+7.
+Sistema
+Seleciona um informativo para visualização detalhada
+
+Caminhos Alternativos / Exceções
+
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Busca sem preenchimento de critérios
+Exibir todos os informativos publicados
+ALT02
+Nenhum resultado encontrado
+Exibir mensagem: “Nenhum informativo encontrado para os critérios informados.”
+EXC01
+Erro no processamento da busca
+Exibir mensagem de erro genérica e permitir nova tentativa
+
+Saídas
+	•	Lista filtrada de Informativos Jurídicos
+	•	Mensagem informativa quando não houver resultados
+Pós-condições
+	•	Usuário visualiza os resultados da busca
+	•	Nenhuma alteração é realizada nos dados do sistema
+
+Dependências: 
+	•	HU001 – Visualizar lista de Informativos Jurídicos
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	Base de Informativos previamente cadastrada e publicada pela GEJUR
+
+HU003 – Visualizar Informativo Jurídico
+
+Descrição
+Como usuário interno autorizado do SESC,
+quero visualizar os detalhes completos de um Informativo Jurídico,
+para compreender o entendimento jurídico publicado, seus metadados e verificar se o documento está vigente ou revogado.
+
+Atores
+	•	Usuário Interno do SESC
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Seleção de um Informativo Jurídico a partir da lista ou dos resultados de busca
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil autorizado para consulta
+	•	Informativo Jurídico publicado existente no sistema
+Requisitos funcionais associados
+ID
+Descrição
+RF16
+Exibir número do informativo
+RF17
+Exibir título do informativo
+RF18
+Exibir ementa do informativo
+RF19
+Exibir órgão/setor emissor
+RF20
+Exibir autoridade assinante
+RF21
+Exibir data de publicação
+RF22
+Exibir status do informativo (Vigente ou Revogado)
+RF23
+Permitir acesso ao texto completo do informativo por meio de anexo (PDF)
+RF24
+Indicar visualmente quando o informativo estiver revogado (ex.: tarjado ou aviso)
+RF25
+Impedir edição do conteúdo por usuários de consulta
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário
+Seleciona um informativo na lista ou nos resultados de busca
+2.
+Sistema
+Carrega a página de visualização do informativo
+3.
+Sistema
+Exibe os metadados completos do informativo
+4.
+Sistema
+Indica claramente o status do informativo
+5.
+Usuário
+Visualiza o conteúdo e, se necessário, acessa o anexo
+
+Caminhos Alternativos / Exceções
+
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Informativo revogado
+Exibir aviso visual informando que o documento não possui mais validade
+EXC01
+Informativo inexistente ou indisponível
+Exibir mensagem: “Informativo não encontrado ou indisponível.”
+EXC02
+Falha ao carregar o anexo
+Exibir mensagem de erro e permitir nova tentativa
+
+Saídas
+	•	Página de visualização do Informativo Jurídico
+	•	Mensagens informativas ou de erro, quando aplicável
+
+Pós-condições
+	•	Usuário tem acesso às informações completas do informativo
+	•	Nenhuma alteração é realizada nos dados do sistema
+Dependências: 
+	•	HU001 – Visualizar lista de Informativos Jurídicos
+	•	HU002 – Buscar Informativos Jurídicos
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+
+EP02 – Gestão (GEJUR) - Documentos, Categorias, Usuários, Grupos de Usuários
+
+HU004 – Cadastrar Informativo Jurídico
+
+Descrição
+Como usuário GEJUR (Gerência Jurídica),
+quero cadastrar um novo Informativo Jurídico no Portal,
+para disponibilizar entendimentos jurídicos institucionais para consulta interna, de forma organizada e padronizada.
+
+Atores
+	•	Usuário GEJUR
+	•	Sistema (Portal Jurídico)
+
+Entradas
+	•	Número do informativo
+	•	Título do informativo
+	•	Ementa
+	•	Texto completo do informativo (anexo em PDF)
+	•	Órgão/setor emissor
+	•	Autoridade assinante
+	•	Data de publicação
+	•	Ação de salvar/publicar informativo
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil GEJUR
+	•	Informativo previamente elaborado e aprovado fora do sistema, no âmbito interno da GEJUR
+
+Requisitos funcionais associados
+ID
+Descrição
+RF26
+Disponibilizar formulário para cadastro de informativos jurídicos
+RF27
+Permitir preenchimento dos campos obrigatórios do informativo
+RF28
+Validar o preenchimento dos campos obrigatórios antes do salvamento
+RF29
+Permitir upload de arquivo PDF com o texto completo do informativo
+RF30
+Impedir cadastro por usuários sem perfil GEJUR
+RF31
+Salvar informativo com status inicial Publicado (Vigente)
+RF32
+Registrar a ação de cadastro no log de rastreabilidade
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário GEJUR
+Acessa a área administrativa do Portal
+2.
+Usuário GEJUR
+Seleciona a opção “Cadastrar Informativo”
+3.
+Sistema
+Exibe formulário de cadastro
+4.
+Usuário GEJUR
+Preenche os campos obrigatórios
+5.
+Usuário GEJUR
+Anexa o documento PDF do informativo
+6.
+Usuário GEJUR
+Confirma o cadastro/publicação
+7.
+Sistema
+Valida os dados informados
+8.
+Sistema
+Salva o informativo como Publicado
+9.
+Sistema
+Registra a ação no histórico de ações
+
+*Caminhos Alternativos / Exceções
+
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Campo obrigatório não preenchido
+Destacar campo e exibir mensagem de validação
+ALT02
+Arquivo em formato inválido
+Exibir mensagem informando formato não permitido
+EXC01
+Falha ao salvar o informativo
+Exibir mensagem de erro e permitir nova tentativa
+EXC02
+Usuário sem permissão GEJUR
+Bloquear acesso à funcionalidade
+
+Saídas
+	•	Informativo Jurídico cadastrado e publicado
+	•	Mensagens de confirmação ou erro
+Pós-condições
+	•	Informativo disponível para consulta pelos usuários internos
+	•	Ação registrada no histórico de rastreabilidade
+
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	HU009 – Controlar acesso por perfil (EP03)
+HU005 – Editar Informativo Jurídico
+
+Descrição
+Como usuário da Gerência Jurídica (GEJUR),
+quero editar um Informativo Jurídico já cadastrado,
+para corrigir informações formais ou atualizar o conteúdo, mantendo a consistência e a confiabilidade das informações disponibilizadas no portal.
+
+Atores
+	•	Usuário GEJUR
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Seleção de informativo jurídico existente
+	•	Número do informativo
+	•	Título do informativo
+	•	Ementa
+	•	Texto completo do informativo (novo anexo em PDF, quando aplicável)
+	•	Órgão/setor emissor
+	•	Autoridade assinante
+	•	Data de publicação
+	•	Ação de publicar nova versão
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil GEJUR
+	•	Informativo previamente cadastrado no sistema
+
+Requisitos funcionais associados
+ID
+Descrição
+RF33
+Permitir seleção de informativo jurídico para edição
+RF34
+Exibir formulário de edição com dados previamente preenchidos
+RF35
+Permitir alteração dos campos do informativo
+RF36
+Validar o preenchimento dos campos obrigatórios antes do salvamento
+RF37
+Permitir substituição do arquivo PDF do informativo
+RF38
+Impedir edição por usuários sem perfil GEJUR
+RF39
+Registrar a ação de edição no log de rastreabilidade
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário GEJUR
+Acessa a área administrativa do Portal
+2.
+Usuário GEJUR
+Seleciona um Informativo Jurídico existente
+3.
+Sistema
+Exibe formulário de edição com os dados atuais
+4.
+Usuário GEJUR
+Altera as informações necessárias
+5.
+Usuário GEJUR
+Substitui o arquivo PDF
+6.
+Usuário GEJUR
+Confirma o salvamento das alterações
+7.
+Sistema
+Valida os dados informados
+8.
+Sistema
+Salva as versão do informativo
+9.
+Sistema
+Registra a ação no histórico de ações
+
+*Caminhos Alternativos / Exceções
+
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Campo obrigatório não preenchido
+Destacar campo e exibir mensagem de validação
+ALT02
+Arquivo em formato inválido
+Exibir mensagem informando formato não permitido
+EXC01
+Falha ao salvar o informativo
+Exibir mensagem de erro e permitir nova tentativa
+EXC02
+Usuário sem permissão GEJUR
+Bloquear acesso à funcionalidade
+
+
+Saídas
+	•	Informativo Jurídico publicado
+	•	Mensagem de confirmação ou erro
+Pós-condições
+	•	Informativo disponível para consulta pelos usuários internos
+	•	Ação de publicação registrada no histórico de rastreabilidade
+Dependências
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	HU009 – Controlar acesso por perfil (EP03)
+
+
+HU006 – Publicar Informativo Jurídico
+
+Descrição
+
+Como usuário da Gerência Jurídica (GEJUR),
+quero publicar um Informativo Jurídico previamente cadastrado,
+para disponibilizá-lo para consulta pelos usuários internos do SESC, garantindo que apenas informativos válidos e consolidados sejam acessados.
+Atores
+	•	Usuário GEJUR
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Seleção de informativo jurídico existente
+	•	Ação de publicar informativo
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil GEJUR
+	•	Informativo previamente cadastrado no sistema
+
+Requisitos funcionais associados
+
+ID
+Descrição
+RF40
+Permitir seleção de Informativo Jurídico para publicação
+RF41
+Alterar status do Informativo para Publicado (Vigente)
+RF42
+Tornar o Informativo visível para usuários internos
+RF43
+Registrar data de publicação automaticamente
+RF44
+Impedir publicação por usuários sem perfil GEJUR
+RF45
+Registrar a ação de publicação no log de rastreabilidade
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário GEJUR
+Acessa a área administrativa do Portal
+2.
+Usuário GEJUR
+Seleciona um Informativo Jurídico cadastrado
+3.
+Usuário GEJUR
+Aciona a opção “Publicar Informativo”
+4.
+Sistema
+Altera o status do Informativo para Publicado
+5.
+Sistema
+Registra a data de publicação
+6.
+Sistema
+Disponibiliza o Informativo para consulta
+7.
+Sistema
+Registra a ação no histórico de ações
+
+*Caminhos Alternativos / Exceções
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Informativo já publicado
+Exibir mensagem informando que o informativo já se encontra publicado
+EXC01
+Falha ao publicar o informativo
+Exibir mensagem de erro e permitir nova tentativa
+EXC02
+Usuário sem permissão GEJUR
+Bloquear acesso à funcionalidade
+
+Saídas
+	•	Informativo Jurídico publicado
+	•	Mensagens de confirmação ou erro
+Pós-condições
+	•	Informativo disponível para consulta pelos usuários internos
+	•	Ação registrada no histórico de rastreabilidade
+
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	HU009 – Controlar acesso por perfil (EP03)
+
+HU007 – Revogar Informativo Jurídico
+
+Descrição
+
+Como usuário da Gerência Jurídica (GEJUR),
+quero revogar um Informativo Jurídico previamente publicado,
+para impedir sua utilização em novas decisões, mantendo-o, quando aplicável, disponível apenas para fins de histórico, com indicação clara de que não possui mais validade
+
+Atores
+	•	Usuário GEJUR
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Seleção de Informativo Jurídico publicado
+	•	Ação de revogar informativo
+	•	Data de revogação
+	•	Motivo da revogação (opcional)
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil GEJUR
+	•	Informativo Jurídico previamente publicado no sistema
+
+Requisitos funcionais associados
+ID
+Descrição
+RF46
+Permitir seleção de Informativo Jurídico publicado para revogação
+RF47
+Alterar status do Informativo para Revogado
+RF48
+Retirar o Informativo da consulta ativa
+RF49
+Manter o Informativo revogado disponível apenas para fins de histórico, de forma tarjada
+RF50
+Exibir indicação clara de que o Informativo não possui mais validade
+RF51
+Registrar data da revogação
+RF52
+Registrar a ação de revogação no log de rastreabilidade
+RF53
+Impedir revogação por usuários sem perfil GEJUR
+
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário GEJUR
+Acessa a área administrativa do Portal
+2.
+Usuário GEJUR
+Seleciona um Informativo Jurídico publicado
+3.
+Usuário GEJUR
+Aciona a opção “Revogar Informativo”
+4.
+Sistema
+Solicita confirmação da ação
+5.
+Usuário GEJUR
+Confirma a revogação
+6.
+Sistema
+Altera o status do Informativo para Revogado
+7.
+Sistema
+Aplica indicação visual de revogação
+8.
+Sistema
+Registra a data da revogação
+9.
+Sistema
+Registra a ação no histórico de ações
+
+*Caminhos Alternativos / Exceções
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Informativo já revogado
+Exibir mensagem informando que o informativo já se encontra revogado
+ALT02
+Cancelamento da confirmação de revogação
+Retornar à tela anterior sem aplicar alterações
+EXC01
+Falha ao revogar o informativo
+Exibir mensagem de erro e permitir nova tentativa
+EXC02
+Usuário sem permissão GEJUR
+Bloquear acesso à funcionalidade
+
+Saídas
+	•	Informativo Jurídico publicado
+	•	Mensagens de confirmação ou erro
+Pós-condições
+	•	Informativo não disponível para novas consultas ativas
+	•	Informativo mantido para histórico com indicação de revogação
+	•	Ação de revogação registrada no histórico de rastreabilidade
+
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	HU009 – Controlar acesso por perfil (EP03)
+
+HU008 – Autenticar usuário no Portal Jurídico
+
+Descrição
+
+Como usuário interno do SESC,
+quero acessar o Portal Jurídico utilizando minhas credenciais institucionais,
+para consultar ou gerenciar Informativos Jurídicos conforme meu perfil de acesso, de forma segura e controlada.
+
+Atores
+	•	Usuário Interno do SESC
+	•	Sistema de Autenticação Institucional
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Login institucional
+	•	Senha institucional
+	•	Ação de autenticar/acessar o portal
+Pré-condições
+	•	Usuário possuir credenciais válidas na rede do SESC
+	•	Usuário possuir perfil autorizado para acesso ao Portal Jurídico
+
+Requisitos funcionais associados
+ID
+Descrição
+RF54
+Permitir autenticação por meio do método institucional utilizado pelo SESC
+RF55
+Validar credenciais antes de conceder acesso ao portal
+RF56
+Impedir acesso de usuários não autorizados
+RF57
+Identificar automaticamente o perfil do usuário autenticado
+RF58
+Redirecionar o usuário para a interface correspondente ao seu perfil
+RF59
+Exibir mensagem clara em caso de falha de autenticação
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário
+Acessa o Portal Jurídico por link direto ou redirecionamento da intranet
+2.
+Sistema
+Exibe tela de autenticação institucional
+3.
+Usuário
+Informa login e senha
+4.
+Sistema
+Valida as credenciais
+5.
+Sistema
+Identifica o perfil do usuário
+6.
+Sistema
+Concede acesso ao portal
+7.
+Sistema
+Redireciona para a página inicial correspondente ao perfil
+
+*Caminhos Alternativos / Exceções
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Credenciais inválidas
+Exibir mensagem informando usuário ou senha inválidos
+ALT02
+Usuário sem perfil autorizado
+Exibir mensagem de acesso não permitido
+EXC01
+Falha no serviço de autenticação
+Exibir mensagem de erro genérica e permitir nova tentativa
+
+Saídas
+	•	Usuário autenticado no Portal Jurídico
+	•	Mensagem de erro, quando aplicável
+Pós-condições
+	•	Sessão de usuário iniciada
+	•	Perfil de acesso carregado no sistema
+
+Dependências: 
+	•	Infraestrutura de autenticação institucional do SESC
+
+HU009 – Controlar acesso por perfil de usuário
+Descrição
+
+Como sistema,
+quero controlar o acesso às funcionalidades do Portal Jurídico com base no perfil do usuário,
+para garantir que apenas usuários autorizados executem ações administrativas, preservando a segurança e a integridade das informações.
+
+Atores
+	•	Sistema (Portal Jurídico)
+	•	Usuário Interno do SESC
+	•	Usuário GEJUR
+Entradas
+	•	Perfil do usuário identificado no momento da autenticação
+	•	Ação de acesso às funcionalidades do portal
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Perfil do usuário corretamente identificado pelo sistema
+
+Requisitos funcionais associados
+ID
+Descrição
+RF60
+Definir perfil “Usuário Interno” com permissão apenas de consulta
+RF61
+Definir perfil “GEJUR” com permissão de cadastro, edição, publicação e revogação de informativos
+RF62
+Restringir funcionalidades administrativas a usuários sem perfil GEJUR
+RF63
+Ocultar menus e ações não permitidas conforme o perfil
+RF64
+Bloquear tentativas de acesso direto a funcionalidades restritas
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário
+Realiza autenticação no Portal Jurídico
+2.
+Sistema
+Identifica o perfil do usuário
+3.
+Sistema
+Carrega permissões associadas ao perfil
+4.
+Sistema
+Exibe apenas funcionalidades permitidas
+5.
+Usuário
+Acessa funcionalidades compatíveis com seu perfil
+
+*Caminhos Alternativos / Exceções
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Tentativa de acesso a funcionalidade restrita
+Bloquear ação e exibir mensagem de acesso não autorizado
+EXC01
+Perfil de usuário não identificado
+Bloquear acesso ao portal e exibir mensagem de erro
+
+Saídas
+	•	Interface do Portal Jurídico carregada conforme o perfil do usuário
+	•	Mensagem de erro, quando aplicável
+Pós-condições
+	•	Usuário com acesso apenas às funcionalidades permitidas
+	•	Segurança e integridade das permissões mantidas
+
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+
+HU010 – Registrar ações e rastreabilidade
+
+Descrição
+
+Como administrador institucional / área jurídica (GEJUR),
+quero que todas as ações relevantes realizadas no Portal Jurídico sejam registradas,
+para garantir rastreabilidade, transparência administrativa e controle interno sobre o uso e a gestão dos Informativos Jurídicos.
+
+Atores
+	•	Usuário GEJUR
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Ação administrativa realizada no sistema (tipo: cadastro, edição, publicação ou revogação de informativo)
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil GEJUR
+	•	Ação administrativa válida executada no sistema
+
+Requisitos funcionais associados
+ID
+Descrição
+RF65
+Registrar ações de cadastro de Informativos Jurídicos
+RF66
+Registrar ações de edição de Informativos Jurídicos
+RF67
+Registrar ações de publicação de Informativos Jurídicos
+RF68
+Registrar ações de revogação de Informativos Jurídicos
+RF69
+Associar cada ação ao usuário responsável
+RF70
+Registrar data e hora da ação
+RF71
+Armazenar histórico de ações para consulta interna
+RF72
+Impedir alteração ou exclusão manual dos registros de log
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário GEJUR
+Realiza uma ação administrativa no Portal Jurídico
+2.
+Sistema
+Executa a ação solicitada
+3.
+Sistema
+Registra automaticamente a ação realizada
+4.
+Sistema
+Associa a ação ao usuário, data e tipo de operação
+5.
+Sistema
+Armazena o registro no histórico de rastreabilidade
+
+*Caminhos Alternativos / Exceções
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Ação administrativa cancelada
+Não registrar log da ação
+EXC01
+Falha no registro do log
+Exibir mensagem de erro e registrar falha técnica no sistema
+EXC02
+Tentativa de alteração/exclusão de log
+Bloquear ação e manter integridade do histórico
+
+Saídas
+	•	Registro da ação no histórico de rastreabilidade
+	•	Mensagem de erro, quando aplicável
+Pós-condições
+	•	Histórico de ações atualizado
+	•	Rastreabilidade administrativa garantida
+
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	HU009 – Controlar acesso por perfil de usuário (EP03)
+
+HU011 – Consultar histórico de ações do sistema
+
+Descrição
+
+Como usuário da Gerência Jurídica (GEJUR),
+quero consultar o histórico de ações realizadas no Portal Jurídico,
+para acompanhar alterações realizadas nos Informativos Jurídicos e garantir controle administrativo e rastreabilidade interna.
+Atores
+	•	Usuário GEJUR
+	•	Sistema (Portal Jurídico)
+Entradas
+	•	Acesso à funcionalidade de histórico de ações
+	•	Seleção de filtros (usuário, tipo de ação, período)
+Pré-condições
+	•	Usuário autenticado no Portal Jurídico
+	•	Usuário possuir perfil GEJUR
+	•	Existirem registros de ações no sistema
+Requisitos funcionais associados
+ID
+Descrição
+RF47
+Disponibilizar listagem de ações registradas no sistema
+RF48
+Permitir filtros por usuário, tipo de ação e período
+RF49
+Restringir o acesso ao histórico de ações exclusivamente à GEJUR
+
+Fluxo de Eventos (Caminho feliz)
+Passo
+Ator
+Ação / Descrição
+1.
+Usuário GEJUR
+Acessa a área administrativa do Portal Jurídico
+2.
+Usuário GEJUR
+Seleciona a opção “Histórico de Ações”
+3.
+Sistema
+Exibe a listagem de ações registradas
+4.
+Usuário GEJUR
+Aplica filtros de busca, se desejado
+5.
+Sistema
+Atualiza a listagem conforme os filtros aplicados
+6.
+Usuário GEJUR
+Consulta os registros exibidos
+
+*Caminhos Alternativos / Exceções
+ID
+Fluxo / Exceção
+Tratamento do Sistema
+ALT01
+Não existem ações registradas
+Exibir mensagem informando ausência de registros
+ALT02
+Filtro aplicado sem resultados
+Exibir mensagem informando que não há resultados para os critérios
+EXC01
+Falha ao carregar histórico
+Exibir mensagem de erro e permitir nova tentativa
+EXC02
+Usuário sem permissão GEJUR
+Bloquear acesso à funcionalidade
+
+Saídas
+	•	Listagem de ações exibida conforme filtros aplicados
+	•	Mensagens informativas ou de erro
+Pós-condições
+	•	Histórico de ações consultado sem alteração dos dados
+	•	Integridade dos registros preservada
+
+Dependências: 
+	•	HU008 – Autenticar usuário no Portal Jurídico (EP03)
+	•	HU009 – Controlar acesso por perfil de usuário (EP03)
+	•	HU010 – Registrar ações e rastreabilidade
+
+
+	•	Requisitos Não Funcionais
+	•	exemplos extraídos do doc do SIGE, 
+	•	OBS: essa parte ficará sob responsabilidade do desenvolvedor preencher
+	•	Desempenho
+	•	Tempo de resposta: Todas as funcionalidades devem ter um tempo de resposta satisfatório (ou seja, de até xx segundos) para a maioria das operações, mesmo durante picos de uso.
+	•	Escalabilidade: O sistema deve ser escalável para suportar até xxx usuários simultâneos, com capacidade de expansão conforme a necessidade.
+	•	
+	•	Segurança
+	•	Autenticação: Todos os usuários devem utilizar autenticação via e-mail e senha para acessar o sistema. Apenas usuários cadastrados previamente no Liferay com um papel regular, que não seja default do Liferay, atribuído ao mesmo poderá acessar o sistema.
+	•	Controle de Acesso: O acesso e permissionamento deve ser restrito com base no papel regular atribuído ao usuário cadastrado no Liferay
+	•	
+	•	Compatibilidade
+	•	Integração com Sistemas Externos: O sistema deve suportar integração via API com o xxx.
+	•	Link da documentação:
+	•	Informações úteis:
+
+

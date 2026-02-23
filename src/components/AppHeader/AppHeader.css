@@ -1,0 +1,248 @@
+@import '../../styles/theme.css';
+
+/* Barra única clara para todo o sistema - Glassmorphism */
+.app-header {
+  background: rgba(244, 244, 244, 0.61);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  padding: 0 var(--spacing-xl);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.16);
+  height: 65px;
+  display: flex;
+  align-items: center;
+}
+
+.app-header-content {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  flex-wrap: wrap;
+  height: 100%;
+}
+
+.app-header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.app-header-logo-img {
+  height: 50px;
+  width: auto;
+  object-fit: contain;
+}
+
+.app-header-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  flex-wrap: wrap;
+}
+
+.app-nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  transition: all var(--transition-base);
+}
+
+.app-nav-link:hover {
+  color: var(--text-secondary);
+  background-color: rgba(30, 27, 15, 0.08);
+}
+
+.app-nav-link.active {
+  color: var(--color-primary);
+  background-color: rgb(236, 236, 236);
+}
+
+.app-nav-icon {
+  font-size: 16px;
+}
+
+.app-header-user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  position: relative;
+}
+
+.app-header-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-base);
+}
+
+.app-header-menu-btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.app-header-menu-btn:hover {
+  background-color: var(--color-gray-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.app-header-menu-btn .anticon {
+  font-size: 18px;
+}
+
+.app-header-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: var(--spacing-xs);
+  min-width: 220px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: var(--spacing-sm);
+  z-index: 200;
+}
+
+.app-header-dropdown-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.app-header-dropdown-label {
+  display: block;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: var(--spacing-xs) var(--spacing-sm) 0;
+}
+
+.app-header-dropdown-divider {
+  height: 1px;
+  background-color: var(--color-gray-light);
+  margin: var(--spacing-sm) 0;
+}
+
+.app-header-font-control {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.app-header-font-buttons {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: 0 var(--spacing-sm);
+}
+
+.app-header-font-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-gray-light);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.app-header-font-btn:hover:not(:disabled) {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.app-header-font-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.app-header-font-value {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  min-width: 3rem;
+  text-align: center;
+}
+
+.app-header-dropdown-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-base);
+  text-align: left;
+}
+
+.app-header-dropdown-item:hover {
+  background-color: var(--color-gray-light);
+}
+
+/* Mobile: esconder nav horizontal e dropdown (usar drawer) */
+@media (max-width: 768px) {
+  .app-header-nav {
+    display: none;
+  }
+
+  .app-header-dropdown {
+    display: none;
+  }
+}
+
+@media (max-width: 968px) {
+  .app-header-nav {
+    order: 3;
+    width: 100%;
+  }
+
+  .app-header-content {
+    flex-wrap: wrap;
+  }
+}
+
+/* Tablet/desktop: nav no dropdown só para gestor em telas onde nav pode estar oculto */
+@media (min-width: 769px) {
+  .app-header-dropdown-nav {
+    display: none;
+  }
+}

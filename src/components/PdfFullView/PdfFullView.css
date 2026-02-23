@@ -1,0 +1,120 @@
+.pdf-full-view {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: var(--spacing-lg) 0;
+  background-color: #525659;
+}
+
+.pdf-full-view .react-pdf__Document {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.pdf-full-view .react-pdf__Page {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 0;
+}
+
+.pdf-full-view-page-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.pdf-full-view-page-wrapper.has-watermark {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+}
+
+.pdf-full-view-page-wrapper.has-watermark .react-pdf__Page__textContent,
+.pdf-full-view-page-wrapper.has-watermark .react-pdf__Page__textContent * {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  pointer-events: none !important;
+}
+
+.pdf-full-view-page-wrapper.has-watermark::after {
+  content: 'REVOGADO';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  font-size: 80px;
+  font-weight: bold;
+  color: rgba(220, 53, 69, 0.25);
+  pointer-events: none;
+  user-select: none;
+  z-index: 1000;
+  white-space: nowrap;
+  letter-spacing: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+  font-family: Arial, sans-serif;
+  min-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .pdf-full-view {
+    width: 100%;
+    max-width: 100%;
+    padding: var(--spacing-sm) 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+  }
+
+  .pdf-full-view .react-pdf__Document {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .pdf-full-view-page-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .pdf-full-view-page-wrapper .react-pdf__Page {
+    max-width: 100% !important;
+  }
+
+  .pdf-full-view-page-wrapper .react-pdf__Page canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  .pdf-full-view-page-wrapper.has-watermark::after {
+    font-size: 2.5rem;
+    letter-spacing: 6px;
+    min-width: 200px;
+  }
+}
+
+.pdf-full-view-page {
+  background-color: #fff;
+  position: relative;
+}
+
+
+.pdf-full-view-loading {
+  padding: var(--spacing-3xl);
+  color: var(--text-primary, #333);
+  font-size: var(--font-size-base);
+}
+
+.pdf-full-view-error {
+  padding: var(--spacing-2xl);
+  color: var(--color-error, #c53030);
+  text-align: center;
+}
+
+.pdf-full-view-error p {
+  margin: 0;
+}
