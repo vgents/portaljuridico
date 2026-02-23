@@ -164,7 +164,7 @@
   font-weight: var(--font-weight-bold);
   color: var(--text-secondary);
   text-transform: uppercase;
-  background-color: rgba(190, 163, 69, 0.08);
+  background-color: rgba(var(--color-primary-rgb), 0.08);
 }
 
 .relatorio-tabela td {
@@ -173,7 +173,7 @@
 }
 
 .relatorio-tabela tbody tr:hover {
-  background-color: rgba(190, 163, 69, 0.05);
+  background-color: rgba(var(--color-primary-rgb), 0.05);
 }
 
 .relatorio-tags {
@@ -187,7 +187,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-xs);
   color: var(--color-primary-dark);
-  background-color: rgba(190, 163, 69, 0.15);
+  background-color: rgba(var(--color-primary-rgb), 0.15);
   border-radius: var(--border-radius-sm);
 }
 

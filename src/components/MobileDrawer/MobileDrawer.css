@@ -188,12 +188,12 @@
 }
 
 .mobile-drawer-nav-item:hover {
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
   color: var(--color-primary);
 }
 
 .mobile-drawer-nav-item:active {
-  background-color: rgba(190, 163, 69, 0.2);
+  background-color: rgba(var(--color-primary-rgb), 0.2);
 }
 
 .mobile-drawer-nav-icon {
@@ -226,7 +226,7 @@
 }
 
 .mobile-drawer-accessibility-item:hover {
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
   color: var(--color-primary);
 }
 
@@ -313,7 +313,7 @@
 .mobile-drawer-logout-btn:hover {
   background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(190, 163, 69, 0.3);
+  box-shadow: 0 4px 8px rgba(var(--color-primary-rgb), 0.3);
 }
 
 .mobile-drawer-logout-btn:active {

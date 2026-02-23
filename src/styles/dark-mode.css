@@ -2,8 +2,8 @@
 /* Sobrescreve variáveis e cores hardcoded para leitura em fundo escuro */
 
 html.theme-dark {
-  /* Variáveis base */
-  --color-primary: #223dc561;
+  /* Variáveis base - tons de azul para modo escuro */
+  --color-primary: #4a7ab8;
   --bg-primary: #242323;
   --bg-secondary: #0d0d0d;
   --text-primary: #e8e8e8;
@@ -13,10 +13,11 @@ html.theme-dark {
   --color-gray-light: #3a3a3a;
   --color-gray-medium: #8a8a8a;
   --color-gray-dark: #e8e8e8;
-  --color-secondary: #e8e8e8;
-  --color-secondary-light: #d0d0d0;
-  --color-primary-dark: #D4B85A;
-  --color-primary-light: #9A8537;
+  --color-secondary: #1a2d4a;
+  --color-secondary-light: #2a4070;
+  --color-primary-dark: #3d6aa3;
+  --color-primary-light: #5c8fc9;
+  --color-primary-rgb: 74, 122, 184;
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
@@ -69,7 +70,7 @@ html.theme-dark .app-header-dropdown-label {
 
 html.theme-dark .app-header-dropdown-item:hover,
 html.theme-dark .app-header-font-btn:hover:not(:disabled) {
-  background-color: rgba(190, 163, 69, 0.25);
+  background-color: rgba(var(--color-primary-rgb), 0.25);
 }
 
 html.theme-dark .app-header-font-btn {
@@ -596,7 +597,7 @@ html.theme-dark .gestao-marcadores-input {
 html.theme-dark .gestao-documentos-input:focus {
   background-color: #252525;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.2);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.2);
 }
 
 html.theme-dark .gestao-documentos-input::placeholder {
@@ -747,7 +748,7 @@ html.theme-dark .relatorio-secao-meta {
 }
 
 html.theme-dark .relatorio-tabela th {
-  background-color: rgba(190, 163, 69, 0.15);
+  background-color: rgba(var(--color-primary-rgb), 0.15);
 }
 
 html.theme-dark .relatorio-tabela td {
@@ -861,12 +862,12 @@ html.theme-dark .mobile-drawer-nav-item {
 }
 
 html.theme-dark .mobile-drawer-nav-item:hover {
-  background-color: rgba(190, 163, 69, 0.2);
+  background-color: rgba(var(--color-primary-rgb), 0.2);
   color: var(--color-primary);
 }
 
 html.theme-dark .mobile-drawer-nav-item:active {
-  background-color: rgba(190, 163, 69, 0.3);
+  background-color: rgba(var(--color-primary-rgb), 0.3);
 }
 
 html.theme-dark .mobile-drawer-accessibility-item {
@@ -874,7 +875,7 @@ html.theme-dark .mobile-drawer-accessibility-item {
 }
 
 html.theme-dark .mobile-drawer-accessibility-item:hover {
-  background-color: rgba(190, 163, 69, 0.2);
+  background-color: rgba(var(--color-primary-rgb), 0.2);
   color: var(--color-primary);
 }
 
@@ -914,7 +915,7 @@ html.theme-dark .mobile-drawer-logout-btn {
 
 html.theme-dark .mobile-drawer-logout-btn:hover {
   background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
-  box-shadow: 0 4px 8px rgba(190, 163, 69, 0.35);
+  box-shadow: 0 4px 8px rgba(var(--color-primary-rgb), 0.35);
 }
 
 html.theme-dark .mobile-drawer-content::-webkit-scrollbar-thumb {

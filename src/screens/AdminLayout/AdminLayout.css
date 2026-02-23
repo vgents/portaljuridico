@@ -80,12 +80,12 @@
 
 .admin-nav-link:hover {
   color: var(--color-primary);
-  background-color: rgba(190, 163, 69, 0.08);
+  background-color: rgba(var(--color-primary-rgb), 0.08);
 }
 
 .admin-nav-link.active {
   color: var(--color-primary);
-  background-color: rgba(190, 163, 69, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
 }
 
 .admin-nav-icon {

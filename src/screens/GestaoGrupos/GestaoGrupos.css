@@ -80,7 +80,7 @@
 .gestao-grupos-search-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .gestao-grupos-btn-create {
@@ -169,14 +169,14 @@
 }
 
 .gestao-grupos-pagination .pagination-number.active {
-  background-color: rgba(190, 163, 69, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
   color: var(--color-primary);
   opacity: 1;
   font-weight: var(--font-weight-medium);
 }
 
 .gestao-grupos-pagination .pagination-number.active:hover {
-  background-color: rgba(190, 163, 69, 0.18);
+  background-color: rgba(var(--color-primary-rgb), 0.18);
 }
 
 .gestao-grupos-pagination .pagination-ellipsis {
@@ -376,7 +376,7 @@
 .gestao-grupos-member-search-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .gestao-grupos-search-empty {
@@ -449,7 +449,7 @@
 }
 
 .gestao-grupos-btn-add-one:hover {
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
 }
 
 .gestao-grupos-members-list {
@@ -534,7 +534,7 @@
 .gestao-grupos-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 /* Permissões no modal Criar grupo */

@@ -3,19 +3,24 @@
 
 :root {
   --reading-font-size-delta: 0px;
-  /* Cores Primárias */
-  --color-primary: #3535c9; /* Dourado - Botões de ação, títulos de documentos, links */
-  --color-primary-dark: #292822; /* Versão mais escura para hover */
-  --color-primary-light: #D4B85A; /* Versão mais clara para estados hover/active */
+  /* Cores Primárias - Azul marinho (header, footer, botões, links) */
+  --color-primary: #0A2346; /* Azul marinho - Botões de ação, títulos, links, header/footer */
+  --color-primary-dark: #061a33; /* Azul marinho mais escuro para hover */
+  --color-primary-light: #134078; /* Azul marinho mais claro para estados hover/active */
+  
+  /* Cor de destaque - Dourado (uso pontual: ícones, bordas, badges) */
+  --color-accent: #D1A766; /* Dourado suave - uso discreto */
+  /* RGB do azul marinho para uso em rgba() */
+  --color-primary-rgb: 10, 35, 70;
   
   /* Cores de Ação (Azul) */
-  --color-action: #007BFF; /* Azul vibrante - Botões principais, links */
-  --color-action-dark: #0056b3; /* Versão mais escura para hover */
-  --color-action-light: #4da6ff; /* Versão mais clara */
+  --color-action: #0A2346; /* Alinhado ao azul marinho */
+  --color-action-dark: #061a33;
+  --color-action-light: #134078;
   
-  /* Cores Secundárias */
-  --color-secondary: #333333; /* Cinza escuro - Backgrounds, textos principais */
-  --color-secondary-light: #4A4A4A; /* Versão mais clara */
+  /* Cores Secundárias - Azul marinho para header/rodapé */
+  --color-secondary: #0A2346; /* Azul marinho - Header e footer do portal */
+  --color-secondary-light: #134078; /* Versão mais clara */
   
   /* Cores Neutras */
   --color-white: #FFFFFF; /* Branco - Backgrounds, textos em fundos escuros */
@@ -38,8 +43,8 @@
   /* Cores de Estado */
   --color-success: #28A745;
   --color-error: #DC3545;
-  --color-warning: #BEA345;
-  --color-info: #17A2B8;
+  --color-warning: #D1A766; /* Dourado suave para avisos */
+  --color-info: #134078; /* Azul para informações */
   
   /* Tipografia */
   --font-family-primary: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;

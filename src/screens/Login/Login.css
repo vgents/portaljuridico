@@ -298,7 +298,7 @@
 
 .forgot-password {
   font-size: var(--font-size-sm);
-  color: #BEA345;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: var(--font-weight-medium);
   transition: color var(--transition-base);

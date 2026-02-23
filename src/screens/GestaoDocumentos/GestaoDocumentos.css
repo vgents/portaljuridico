@@ -80,7 +80,7 @@
 .gestao-documentos-search-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .gestao-documentos-btn-create {
@@ -168,14 +168,14 @@
 }
 
 .gestao-documentos-pagination .pagination-number.active {
-  background-color: rgba(190, 163, 69, 0.12);
+  background-color: rgba(var(--color-primary-rgb), 0.12);
   color: var(--color-primary);
   opacity: 1;
   font-weight: var(--font-weight-medium);
 }
 
 .gestao-documentos-pagination .pagination-number.active:hover {
-  background-color: rgba(190, 163, 69, 0.18);
+  background-color: rgba(var(--color-primary-rgb), 0.18);
 }
 
 .gestao-documentos-pagination .pagination-ellipsis {
@@ -489,7 +489,7 @@
 }
 
 .sigilo-grupo {
-  background-color: rgba(190, 163, 69, 0.2);
+  background-color: rgba(var(--color-primary-rgb), 0.2);
   color: var(--color-primary-dark);
 }
 
@@ -1091,7 +1091,7 @@
 .gestao-documentos-textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .gestao-documentos-fieldset {

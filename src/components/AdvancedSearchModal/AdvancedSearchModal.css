@@ -132,7 +132,7 @@
 .advanced-search-select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .advanced-search-input {
@@ -157,7 +157,7 @@
 .advanced-search-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .advanced-search-status-buttons {
@@ -180,7 +180,7 @@
 
 .advanced-search-status-btn:hover {
   border-color: var(--color-primary);
-  background-color: rgba(190, 163, 69, 0.05);
+  background-color: rgba(var(--color-primary-rgb), 0.05);
 }
 
 .advanced-search-status-btn.active {
@@ -220,7 +220,7 @@
 .advanced-search-date-input:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .advanced-search-date-icon {
@@ -260,7 +260,7 @@
 
 .advanced-search-quick-date-btn:hover {
   border-color: var(--color-primary);
-  background-color: rgba(190, 163, 69, 0.05);
+  background-color: rgba(var(--color-primary-rgb), 0.05);
 }
 
 .advanced-search-footer {
@@ -303,7 +303,7 @@
 .advanced-search-apply:hover {
   background-color: var(--color-primary-dark);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(190, 163, 69, 0.3);
+  box-shadow: 0 4px 12px rgba(var(--color-primary-rgb), 0.3);
 }
 
 /* Responsive */

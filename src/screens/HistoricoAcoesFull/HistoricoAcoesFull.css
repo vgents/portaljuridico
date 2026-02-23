@@ -190,7 +190,7 @@
 .historico-acoes-full-filtro-select:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(190, 163, 69, 0.1);
+  box-shadow: 0 0 0 3px rgba(var(--color-primary-rgb), 0.1);
 }
 
 .historico-acoes-full-filtro-input::placeholder {
@@ -295,7 +295,7 @@
 .historico-acoes-full-item-hora {
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
   padding: var(--spacing-xs) var(--spacing-sm);
   border-radius: var(--border-radius-sm);
   white-space: nowrap;

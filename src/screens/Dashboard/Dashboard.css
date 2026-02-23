@@ -553,11 +553,11 @@
 .pagination-number.active {
   color: var(--text-primary);
   font-weight: var(--font-weight-medium);
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
 }
 
 .pagination-number.active:hover {
-  background-color: rgba(190, 163, 69, 0.15);
+  background-color: rgba(var(--color-primary-rgb), 0.15);
 }
 
 .pagination-ellipsis {

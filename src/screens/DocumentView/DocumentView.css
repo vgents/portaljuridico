@@ -245,7 +245,7 @@
   padding: var(--spacing-xs) var(--spacing-sm);
   font-size: var(--font-size-xs);
   color: var(--color-primary-dark);
-  background-color: rgba(190, 163, 69, 0.15);
+  background-color: rgba(var(--color-primary-rgb), 0.15);
   border-radius: var(--border-radius-sm);
   margin-right: var(--spacing-xs);
   margin-bottom: var(--spacing-xs);

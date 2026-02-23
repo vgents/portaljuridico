@@ -59,7 +59,7 @@
 }
 
 .historico-acoes-btn-ver-tudo:hover {
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
   transform: translateX(2px);
 }
 
@@ -142,7 +142,7 @@
 .historico-acoes-item-hora {
   font-size: var(--font-size-xs);
   color: var(--text-secondary);
-  background-color: rgba(190, 163, 69, 0.1);
+  background-color: rgba(var(--color-primary-rgb), 0.1);
   padding: 2px var(--spacing-xs);
   border-radius: var(--border-radius-sm);
   white-space: nowrap;

@@ -63,14 +63,14 @@ function AdminDashboard({ user, onLogout }) {
       {
         label: 'Acessos da Plataforma',
         data: currentData.map(item => item.acessos),
-        borderColor: '#BEA345',
-        backgroundColor: 'rgba(190, 163, 69, 0.1)',
+        borderColor: '#0A2346',
+        backgroundColor: 'rgba(10, 35, 70, 0.15)',
         borderWidth: 3,
         fill: true,
         tension: 0.4, // Linha suave
         pointRadius: 5,
         pointHoverRadius: 7,
-        pointBackgroundColor: '#BEA345',
+        pointBackgroundColor: '#0A2346',
         pointBorderColor: '#ffffff',
         pointBorderWidth: 2,
         pointHoverBackgroundColor: '#9A8537',
