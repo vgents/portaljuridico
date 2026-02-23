@@ -243,8 +243,8 @@ function RelatorioView({ opcoes, data, user }) {
                   datasets: [{
                     label: 'Acessos',
                     data: data.acessosData.values,
-                    borderColor: '#0A2346',
-                    backgroundColor: 'rgba(10, 35, 70, 0.15)',
+                    borderColor: '#E8A842',
+                    backgroundColor: 'rgba(232, 168, 66, 0.15)',
                     fill: true,
                     tension: 0.4
                   }]

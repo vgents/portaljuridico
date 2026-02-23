@@ -207,7 +207,7 @@
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: var(--spacing-lg);
   background-color: var(--color-white);
   padding: var(--spacing-2xl);
   border-radius: 16px;
@@ -220,6 +220,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-xs);
 }
 
 .form-label {
@@ -228,26 +229,32 @@
   color: #4a5568;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  margin-bottom: var(--spacing-xs);
+  margin-bottom: 0;
 }
 
 .form-input-wrapper {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .input-icon {
   position: absolute;
-  left: var(--spacing-md);
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
   color: #a0aec0;
-  font-size: var(--font-size-base);
+  font-size: 1.125rem;
+  line-height: 1;
   z-index: 1;
+  pointer-events: none;
 }
 
 .form-input {
   width: 100%;
-  padding: var(--spacing-md) var(--spacing-md) var(--spacing-md) 44px;
+  height: 48px;
+  padding: 0 1rem 0 3rem;
   font-size: var(--font-size-base);
   font-family: var(--font-family-primary);
   color: var(--text-primary);
@@ -255,6 +262,7 @@
   border: 1px solid #e2e8f0;
   border-radius: 8px;
   transition: border-color var(--transition-base), background-color var(--transition-base);
+  box-sizing: border-box;
 }
 
 .form-input::placeholder {

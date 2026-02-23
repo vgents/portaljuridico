@@ -576,7 +576,7 @@ function GestaoDocumentos({ user }) {
                 </div>
               </div>
               <button type="button" className="gestao-documentos-btn-create" onClick={openCreate}>
-                <PlusOutlined /> Criar novo documento
+                <PlusOutlined /> Novo documento
               </button>
             </div>
             <div className="gestao-documentos-results-pagination-row">

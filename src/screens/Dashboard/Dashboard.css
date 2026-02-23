@@ -567,112 +567,6 @@
   user-select: none;
 }
 
-/* Footer */
-.dashboard-footer {
-  background-color: var(--color-secondary);
-  color: var(--text-white);
-  padding: var(--spacing-xl);
-  margin-top: auto;
-}
-
-.footer-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: var(--spacing-xl);
-}
-
-.footer-logo-column {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-md);
-}
-
-.footer-logo h3 {
-  font-size: var(--font-size-xl);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-xs);
-}
-
-.footer-logo p {
-  font-size: var(--font-size-sm);
-  opacity: 0.9;
-  margin: 0;
-}
-
-.social-icons {
-  display: flex;
-  gap: var(--spacing-md);
-  flex-wrap: wrap;
-}
-
-.social-icon {
-  color: var(--text-white);
-  text-decoration: none;
-  font-size: var(--font-size-lg);
-  opacity: 0.8;
-  transition: opacity var(--transition-base);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.social-icon:hover {
-  opacity: 1;
-}
-
-.footer-links {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-xl);
-}
-
-.footer-column h4 {
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
-  margin-bottom: var(--spacing-md);
-}
-
-.footer-column ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-column ul li {
-  margin-bottom: var(--spacing-sm);
-}
-
-.footer-column a {
-  color: var(--text-white);
-  text-decoration: none;
-  font-size: var(--font-size-sm);
-  opacity: 0.8;
-  transition: opacity var(--transition-base);
-}
-
-.footer-column a:hover {
-  opacity: 1;
-}
-
-.footer-info {
-  font-size: var(--font-size-sm);
-  margin-bottom: var(--spacing-sm);
-  opacity: 0.9;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-xs);
-}
-
-.footer-icon {
-  font-size: var(--font-size-base);
-}
-
-.footer-column p {
-  margin: 0;
-}
-
 /* Responsive */
 @media (max-width: 1200px) {
   .search-input-wrapper {
@@ -695,14 +589,6 @@
 }
 
 @media (max-width: 968px) {
-  .footer-content {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-links {
-    grid-template-columns: 1fr;
-  }
-
   .search-title {
     font-size: var(--font-size-3xl);
   }

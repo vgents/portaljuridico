@@ -300,18 +300,21 @@ html.theme-dark .admin-layout-header {
   background-color: #2a2a2a;
 }
 
-html.theme-dark .admin-layout-footer {
-  background-color: #2a2a2a;
-  border-top-color: var(--color-gray-light);
+/* Rodapé padronizado (.app-footer) */
+html.theme-dark .app-footer {
+  background-color: #0d0d0d;
 }
 
-html.theme-dark .admin-layout-footer .footer-logo h3,
-html.theme-dark .admin-layout-footer .footer-logo p {
+html.theme-dark .app-footer .app-footer-logo h3,
+html.theme-dark .app-footer .app-footer-logo p,
+html.theme-dark .app-footer .app-footer-column h4,
+html.theme-dark .app-footer .app-footer-info,
+html.theme-dark .app-footer .app-footer-column a {
   color: var(--text-primary);
 }
 
-html.theme-dark .admin-layout-footer .footer-logo p {
-  color: var(--text-secondary);
+html.theme-dark .app-footer .app-footer-social-icon {
+  color: var(--text-primary);
 }
 
 html.theme-dark .admin-dashboard-container {
@@ -767,11 +770,7 @@ html.theme-dark .form-select {
   color: var(--text-primary);
 }
 
-/* Footer (comum) - fundo escuro mantém contraste */
-html.theme-dark .dashboard-footer,
-html.theme-dark .document-view-footer {
-  background-color: #0d0d0d;
-}
+/* Footer padronizado - estilos em .app-footer (dark) já definidos acima */
 
 /* Papel badges, sigilo badges em tabelas */
 html.theme-dark .papel-badge,

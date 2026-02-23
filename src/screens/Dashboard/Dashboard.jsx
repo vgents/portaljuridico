@@ -6,11 +6,6 @@ import {
   MailOutlined,
   PhoneOutlined,
   WhatsAppOutlined,
-  YoutubeOutlined,
-  FacebookOutlined,
-  TwitterOutlined,
-  InstagramOutlined,
-  LinkedinOutlined,
   StarOutlined,
   LeftOutlined,
   RightOutlined,
@@ -25,6 +20,7 @@ import { filtrarDocumentosPorSigilo } from '../../utils/documentoSigilo';
 import { gruposMock } from '../../data/grupos';
 import DocumentView from '../DocumentView/DocumentView';
 import AdvancedSearchModal from '../../components/AdvancedSearchModal/AdvancedSearchModal';
+import AppFooter from '../../components/AppFooter/AppFooter';
 import './Dashboard.css';
 
 function Dashboard({ user, onLogout }) {
@@ -571,76 +567,7 @@ function Dashboard({ user, onLogout }) {
         isAdmin={user?.profile === 'Administrador'}
       />
 
-      {/* Footer */}
-      <footer className="dashboard-footer">
-        <div className="footer-content">
-          <div className="footer-logo-column">
-            <div className="footer-logo">
-              <h3>Sesc</h3>
-              <p>Fecomércio Senac</p>
-            </div>
-            <div className="social-icons">
-              <a href="#" aria-label="YouTube" className="social-icon">
-                <YoutubeOutlined />
-              </a>
-              <a href="#" aria-label="Facebook" className="social-icon">
-                <FacebookOutlined />
-              </a>
-              <a href="#" aria-label="Instagram" className="social-icon">
-                <InstagramOutlined />
-              </a>
-              <a href="#" aria-label="Email" className="social-icon">
-                <MailOutlined />
-              </a>
-              <a href="#" aria-label="LinkedIn" className="social-icon">
-                <LinkedinOutlined />
-              </a>
-            </div>
-          </div>
-
-          <div className="footer-links">
-            <div className="footer-column">
-              <h4>Sobre o SESC</h4>
-              <ul>
-                <li><a href="#">Transparência</a></li>
-                <li><a href="#">Notícias</a></li>
-                <li><a href="#">Credencial</a></li>
-                <li><a href="#">Trabalhe conosco</a></li>
-                <li><a href="#">Portal de compras</a></li>
-                <li><a href="#">Podcast</a></li>
-              </ul>
-            </div>
-
-            <div className="footer-column">
-              <h4>SAC</h4>
-              <p className="footer-info">
-                <EnvironmentOutlined className="footer-icon" />
-                Serviço Social do Comércio
-              </p>
-              <p className="footer-info">
-                <MailOutlined className="footer-icon" />
-                <a href="mailto:sac@sescdf.com.br">sac@sescdf.com.br</a>
-              </p>
-              <p className="footer-info">
-                <PhoneOutlined className="footer-icon" />
-                <a href="tel:08000617617">0800 0617 617</a>
-              </p>
-            </div>
-
-            <div className="footer-column">
-              <h4>Ouvidoria</h4>
-              <p className="footer-info">
-                <MailOutlined className="footer-icon" />
-                <a href="mailto:ouvidoria@sescdf.com.br">ouvidoria@sescdf.com.br</a>
-              </p>
-              <p className="footer-info">
-                <WhatsAppOutlined className="footer-icon" />
-                <a href="#">WhatsApp</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <AppFooter />
     </div>
   );
 }

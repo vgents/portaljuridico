@@ -25,6 +25,7 @@ import {
 import { Line } from 'react-chartjs-2';
 import { adminStats, accessData, gruposMock, categoriasMock, tagsMock } from '../../data/adminStats';
 import GestaoColaboradores from '../GestaoColaboradores/GestaoColaboradores';
+import AppFooter from '../../components/AppFooter/AppFooter';
 import './AdminDashboard.css';
 
 // Registrar componentes do Chart.js
@@ -63,17 +64,17 @@ function AdminDashboard({ user, onLogout }) {
       {
         label: 'Acessos da Plataforma',
         data: currentData.map(item => item.acessos),
-        borderColor: '#0A2346',
-        backgroundColor: 'rgba(10, 35, 70, 0.15)',
+        borderColor: '#E8A842',
+        backgroundColor: 'rgba(232, 168, 66, 0.15)',
         borderWidth: 3,
         fill: true,
         tension: 0.4, // Linha suave
         pointRadius: 5,
         pointHoverRadius: 7,
-        pointBackgroundColor: '#0A2346',
+        pointBackgroundColor: '#E8A842',
         pointBorderColor: '#ffffff',
         pointBorderWidth: 2,
-        pointHoverBackgroundColor: '#9A8537',
+        pointHoverBackgroundColor: '#d49538',
         pointHoverBorderColor: '#ffffff',
       }
     ]
@@ -353,17 +354,7 @@ function AdminDashboard({ user, onLogout }) {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="admin-footer">
-        <div className="footer-content">
-          <div className="footer-logo-column">
-            <div className="footer-logo">
-              <h3>Sesc</h3>
-              <p>Fecomércio Senac</p>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <AppFooter />
     </div>
   );
 }

@@ -175,31 +175,6 @@
   flex: 1;
 }
 
-.admin-layout-footer {
-  background-color: var(--color-white);
-  padding: var(--spacing-lg) var(--spacing-xl);
-  margin-top: auto;
-  border-top: 1px solid #e9ecef;
-}
-
-.admin-layout-footer .footer-content {
-  max-width: 1400px;
-  margin: 0 auto;
-}
-
-.admin-layout-footer .footer-logo h3 {
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-bold);
-  color: var(--color-secondary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.admin-layout-footer .footer-logo p {
-  font-size: var(--font-size-sm);
-  color: var(--text-secondary);
-  margin: 0;
-}
-
 @media (max-width: 968px) {
   .admin-layout-nav {
     order: 3;
