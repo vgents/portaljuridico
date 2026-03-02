@@ -19,6 +19,7 @@ import { categoriasMock, tagsMock } from '../../data/adminStats';
 import DocumentView from '../DocumentView/DocumentView';
 import ActionFeedbackModal from '../../components/ActionFeedbackModal/ActionFeedbackModal';
 import PasswordConfirmModal from '../../components/PasswordConfirmModal/PasswordConfirmModal';
+import { getDocumentTypeIcon } from '../../utils/documentTypeIcon';
 import './GestaoDocumentos.css';
 
 const CREATE_STEPS = [
@@ -697,14 +698,16 @@ function GestaoDocumentos({ user }) {
           <div className="gestao-documentos-cards-wrapper gestao-mobile-view">
             {displayedDocumentos.length > 0 ? (
               <div className="gestao-documentos-cards">
-                {displayedDocumentos.map((doc) => (
+                {displayedDocumentos.map((doc) => {
+                  const DocIcon = getDocumentTypeIcon(doc);
+                  return (
                   <div
                     key={doc.id}
                     className="gestao-documentos-card"
                     onClick={(e) => handleViewDocument(doc, e)}
                   >
                     <div className="gestao-documentos-card-header">
-                      <FileTextOutlined className="gestao-documentos-card-icon" />
+                      <DocIcon className="gestao-documentos-card-icon" aria-hidden />
                       <div className="gestao-documentos-card-header-right">
                         <span className={`status-badge status-${(doc.status || (doc.revogado ? 'Revogado' : 'Vigente')).toLowerCase()}`}>
                           {doc.status || (doc.revogado ? 'Revogado' : 'Vigente')}
@@ -761,7 +764,8 @@ function GestaoDocumentos({ user }) {
                       </button>
                     </div>
                   </div>
-                ))}
+                  );
+                })}
               </div>
             ) : (
               <div className="gestao-documentos-no-results-card">

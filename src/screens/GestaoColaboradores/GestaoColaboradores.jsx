@@ -456,10 +456,10 @@ function GestaoColaboradores() {
       {/* Modal para Desktop */}
       {isModalOpen && !isMobile && (
         <div className="modal-overlay" onClick={handleCloseModal}>
-          <div className="modal-dialog" onClick={(e) => e.stopPropagation()}>
+          <div className="modal-dialog modal-detalhes-usuario" onClick={(e) => e.stopPropagation()}>
             {/* Cabeçalho do modal */}
             <div className="modal-dialog-header">
-              <h2 className="modal-dialog-title">Detalhes da Conta</h2>
+              <h2 className="modal-dialog-title">Detalhes do usuário</h2>
               <button className="modal-close-button" onClick={handleCloseModal} aria-label="Fechar">
                 <CloseOutlined />
               </button>
@@ -472,7 +472,7 @@ function GestaoColaboradores() {
                 <div className="modal-photo-container">
                   <label className="modal-photo-label" htmlFor="colaborador-foto">
                     {formData.foto ? (
-                      <div className="modal-photo-wrapper">
+                      <div className="modal-photo-wrapper modal-photo-wrapper-circle">
                         <img src={formData.foto} alt={formData.nome} className="modal-photo-image" />
                         <div className="modal-photo-overlay">
                           <CameraOutlined className="modal-photo-icon" />
@@ -480,7 +480,7 @@ function GestaoColaboradores() {
                         </div>
                       </div>
                     ) : (
-                      <div className="modal-photo-wrapper">
+                      <div className="modal-photo-wrapper modal-photo-wrapper-circle">
                         <div className="modal-photo-placeholder">
                           {getInitials(formData.nome)}
                         </div>
@@ -501,7 +501,7 @@ function GestaoColaboradores() {
                 </div>
 
                 {/* Navegação vertical */}
-                <nav className="modal-vertical-nav">
+                <nav className="modal-vertical-nav" aria-label="Seções do usuário">
                   <button
                     type="button"
                     className={`modal-nav-item ${activeTab === 'dados' ? 'active' : ''}`}
@@ -516,76 +516,79 @@ function GestaoColaboradores() {
               {/* Painel direito - Formulário */}
               <div className="modal-right-panel">
                 <div className="modal-form-content">
-                  <div className="form-group">
-                    <label htmlFor="nome">Nome *</label>
-                    <input
-                      type="text"
-                      id="nome"
-                      name="nome"
-                      value={formData.nome}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
+                  <h3 className="modal-form-section-title">Dados da Conta</h3>
+                  <div className="modal-form-fields">
+                    <div className="form-group">
+                      <label htmlFor="nome">Nome *</label>
+                      <input
+                        type="text"
+                        id="nome"
+                        name="nome"
+                        value={formData.nome}
+                        onChange={handleInputChange}
+                        className="form-input"
+                        required
+                      />
+                    </div>
 
-                  <div className="form-group">
-                    <label htmlFor="setor">Setor *</label>
-                    <input
-                      type="text"
-                      id="setor"
-                      name="setor"
-                      value={formData.setor}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
+                    <div className="form-group">
+                      <label htmlFor="setor">Setor *</label>
+                      <input
+                        type="text"
+                        id="setor"
+                        name="setor"
+                        value={formData.setor}
+                        onChange={handleInputChange}
+                        className="form-input"
+                        required
+                      />
+                    </div>
 
-                  <div className="form-group">
-                    <label htmlFor="funcao">Função *</label>
-                    <input
-                      type="text"
-                      id="funcao"
-                      name="funcao"
-                      value={formData.funcao}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
-                  </div>
+                    <div className="form-group">
+                      <label htmlFor="funcao">Função *</label>
+                      <input
+                        type="text"
+                        id="funcao"
+                        name="funcao"
+                        value={formData.funcao}
+                        onChange={handleInputChange}
+                        className="form-input"
+                        required
+                      />
+                    </div>
 
-                  <div className="form-group">
-                    <label htmlFor="papel">Papel no Site *</label>
-                    <select
-                      id="papel"
-                      name="papel"
-                      value={formData.papel}
-                      onChange={handleInputChange}
-                      className="form-select"
-                      required
-                    >
-                      <option value="Gerente da Área">Gerente da Área</option>
-                      <option value="Gerente Adjunto">Gerente Adjunto</option>
-                      <option value="Usuário Padrão">Usuário Padrão</option>
-                    </select>
-                  </div>
+                    <div className="form-group">
+                      <label htmlFor="papel">Papel no Site *</label>
+                      <select
+                        id="papel"
+                        name="papel"
+                        value={formData.papel}
+                        onChange={handleInputChange}
+                        className="form-select"
+                        required
+                      >
+                        <option value="Gerente da Área">Gerente da Área</option>
+                        <option value="Gerente Adjunto">Gerente Adjunto</option>
+                        <option value="Usuário Padrão">Usuário Padrão</option>
+                      </select>
+                    </div>
 
-                  <div className="form-group">
-                    <label htmlFor="email">E-Mail *</label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      className="form-input"
-                      required
-                    />
+                    <div className="form-group">
+                      <label htmlFor="email">E-Mail *</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="form-input"
+                        required
+                      />
+                    </div>
                   </div>
 
                   <div className="modal-form-footer">
-                    <button className="modal-button save-button" onClick={handleSave}>
+                    <button type="button" className="modal-button save-button" onClick={handleSave}>
                       <SaveOutlined /> Atualizar
                     </button>
                   </div>

@@ -12,11 +12,14 @@ import {
   CalendarOutlined,
   TagOutlined,
   FolderOutlined,
-  LoadingOutlined
+  LoadingOutlined,
+  FilterOutlined,
+  FilterFilled
 } from '@ant-design/icons';
 import { showingDocuments } from '../../data';
 import { getAllDocuments } from '../../db/documentosDb';
 import { filtrarDocumentosPorSigilo } from '../../utils/documentoSigilo';
+import { getDocumentTypeIcon } from '../../utils/documentTypeIcon';
 import { gruposMock } from '../../data/grupos';
 import DocumentView from '../DocumentView/DocumentView';
 import AdvancedSearchModal from '../../components/AdvancedSearchModal/AdvancedSearchModal';
@@ -426,8 +429,9 @@ function Dashboard({ user, onLogout }) {
         <div className="search-content">
           <h1 className="search-title">Pesquisar documentos</h1>
           <form className="search-form" onSubmit={handleSearch}>
-            <div className="search-form-inner">
+            <div className="search-pill">
               <div className="search-input-wrapper">
+                <SearchOutlined className="search-input-icon" />
                 <input
                   type="text"
                   className="search-input"
@@ -436,15 +440,15 @@ function Dashboard({ user, onLogout }) {
                   onChange={(e) => setSearchTerm(e.target.value)}
                 />
               </div>
-              <button type="submit" className="search-button">
-                Buscar
+              <button
+                type="button"
+                className="search-advanced-btn"
+                onClick={handleAdvancedSearchOpen}
+              >
+                <FilterOutlined /> Busca avançada
               </button>
             </div>
           </form>
-          <div className="advanced-search-wrapper">
-            <StarOutlined className="advanced-search-icon" />
-            <a href="#" className="advanced-search-link" onClick={handleAdvancedSearchOpen}>Busca avançada:</a>
-          </div>
           <div className="filter-tags">
             {filters.map((filter) => (
               <button
@@ -503,6 +507,10 @@ function Dashboard({ user, onLogout }) {
               return (
                 <div key={doc.id || index} className="document-card">
                   <div className="document-meta">
+                    {(() => {
+                      const DocIcon = getDocumentTypeIcon(doc);
+                      return <DocIcon className="document-type-icon" aria-hidden />;
+                    })()}
                     <span className="document-id">{doc.id || 'Sem ID'}</span>
                     <span className="document-date">
                       <CalendarOutlined className="date-icon" />

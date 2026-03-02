@@ -99,9 +99,6 @@ function Login({ onLogin }) {
                 <FileTextOutlined /> Termos
               </a>
               <a href="#">
-                <DollarOutlined /> Planos
-              </a>
-              <a href="#">
                 <CustomerServiceOutlined /> Contato
               </a>
             </div>

@@ -239,9 +239,9 @@
   width: 100%;
 }
 
-.input-icon {
+.login-form .input-icon {
   position: absolute;
-  left: 1rem;
+  left: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   color: #a0aec0;
@@ -251,10 +251,10 @@
   pointer-events: none;
 }
 
-.form-input {
+.login-form .form-input {
   width: 100%;
   height: 48px;
-  padding: 0 1rem 0 3rem;
+  padding: 0.875rem 1rem 0.875rem 2.25rem;
   font-size: var(--font-size-base);
   font-family: var(--font-family-primary);
   color: var(--text-primary);
@@ -265,17 +265,17 @@
   box-sizing: border-box;
 }
 
-.form-input::placeholder {
+.login-form .form-input::placeholder {
   color: #a0aec0;
 }
 
-.form-input:focus {
+.login-form .form-input:focus {
   outline: none;
   border-color: #3182ce;
   background-color: var(--color-white);
 }
 
-.form-input:disabled {
+.login-form .form-input:disabled {
   background-color: #edf2f7;
   cursor: not-allowed;
   opacity: 0.6;

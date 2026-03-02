@@ -152,113 +152,119 @@ function AdvancedSearchModal({ isOpen, onClose, onApply, initialFilters = null, 
         </div>
 
         <div className="advanced-search-body">
-          <div className="advanced-search-field">
-            <label className="advanced-search-label">TIPO DE DOCUMENTO</label>
-            <div className="advanced-search-select-wrapper">
-              <select
-                className="advanced-search-select"
-                value={filters.tipo}
-                onChange={handleTipoChange}
-              >
-                {TIPOS_DOCUMENTO.map((tipo) => (
-                  <option key={tipo} value={tipo}>
-                    {tipo}
-                  </option>
-                ))}
-              </select>
+          <div className="advanced-search-grid">
+            <div className="advanced-search-field advanced-search-field-tipo">
+              <label className="advanced-search-label">TIPO DE DOCUMENTO</label>
+              <div className="advanced-search-select-wrapper">
+                <select
+                  className="advanced-search-select"
+                  value={filters.tipo}
+                  onChange={handleTipoChange}
+                >
+                  {TIPOS_DOCUMENTO.map((tipo) => (
+                    <option key={tipo} value={tipo}>
+                      {tipo}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-          </div>
 
-          <div className="advanced-search-field">
-            <label className="advanced-search-label">CATEGORIA / TEMA</label>
-            <div className="advanced-search-select-wrapper">
-              <select
-                className="advanced-search-select"
-                value={filters.categoria}
-                onChange={handleCategoriaChange}
-              >
-                {CATEGORIAS.map((cat) => (
-                  <option key={cat} value={cat}>
-                    {cat}
-                  </option>
-                ))}
-              </select>
+            {isAdmin && (
+              <div className="advanced-search-field advanced-search-field-status">
+                <label className="advanced-search-label">STATUS</label>
+                <div className="advanced-search-status-buttons">
+                  <button
+                    type="button"
+                    className={`advanced-search-status-btn ${
+                      filters.status === 'Vigente' ? 'active' : ''
+                    }`}
+                    onClick={() => handleStatusChange('Vigente')}
+                  >
+                    Vigente
+                  </button>
+                  <button
+                    type="button"
+                    className={`advanced-search-status-btn ${
+                      filters.status === 'Revogado' ? 'active' : ''
+                    }`}
+                    onClick={() => handleStatusChange('Revogado')}
+                  >
+                    Revogado
+                  </button>
+                </div>
+              </div>
+            )}
+
+            <div className="advanced-search-field advanced-search-field-categoria">
+              <label className="advanced-search-label">CATEGORIA / TEMA</label>
+              <div className="advanced-search-select-wrapper">
+                <select
+                  className="advanced-search-select"
+                  value={filters.categoria}
+                  onChange={handleCategoriaChange}
+                >
+                  {CATEGORIAS.map((cat) => (
+                    <option key={cat} value={cat}>
+                      {cat}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
-          </div>
 
-          <div className="advanced-search-field">
-            <label className="advanced-search-label">NÚMERO DO DOCUMENTO</label>
-            <input
-              type="text"
-              className="advanced-search-input"
-              placeholder="Ex: IJ-018/2026"
-              value={filters.numeroDocumento}
-              onChange={handleNumeroChange}
-            />
-          </div>
-
-          {isAdmin && (
-            <div className="advanced-search-field">
-              <label className="advanced-search-label">STATUS</label>
-              <div className="advanced-search-status-buttons">
+            <div className="advanced-search-field advanced-search-field-periodo">
+              <label className="advanced-search-label">PERÍODO DE PUBLICAÇÃO</label>
+              <div className="advanced-search-date-range">
+                <div className="advanced-search-date-input-wrapper">
+                  <input
+                    type="date"
+                    className="advanced-search-date-input"
+                    value={filters.dataInicio}
+                    onChange={handleDataInicioChange}
+                    placeholder="dd/mm/aaaa"
+                  />
+                  <CalendarOutlined className="advanced-search-date-icon" />
+                </div>
+                <span className="advanced-search-date-separator">até</span>
+                <div className="advanced-search-date-input-wrapper">
+                  <input
+                    type="date"
+                    className="advanced-search-date-input"
+                    value={filters.dataFim}
+                    onChange={handleDataFimChange}
+                    placeholder="dd/mm/aaaa"
+                  />
+                  <CalendarOutlined className="advanced-search-date-icon" />
+                </div>
+              </div>
+              <div className="advanced-search-quick-dates">
                 <button
                   type="button"
-                  className={`advanced-search-status-btn ${filters.status === 'Vigente' ? 'active' : ''}`}
-                  onClick={() => handleStatusChange('Vigente')}
+                  className="advanced-search-quick-date-btn"
+                  onClick={() => handleQuickDateRange('30dias')}
                 >
-                  Vigente
+                  ÚLTIMOS 30 DIAS
                 </button>
                 <button
                   type="button"
-                  className={`advanced-search-status-btn ${filters.status === 'Revogado' ? 'active' : ''}`}
-                  onClick={() => handleStatusChange('Revogado')}
+                  className="advanced-search-quick-date-btn"
+                  onClick={() => handleQuickDateRange('esteAno')}
                 >
-                  Revogado
+                  ESTE ANO
                 </button>
               </div>
             </div>
-          )}
 
-          <div className="advanced-search-field">
-            <label className="advanced-search-label">PERÍODO DE PUBLICAÇÃO</label>
-            <div className="advanced-search-date-range">
-              <div className="advanced-search-date-input-wrapper">
-                <input
-                  type="date"
-                  className="advanced-search-date-input"
-                  value={filters.dataInicio}
-                  onChange={handleDataInicioChange}
-                  placeholder="dd/mm/aaaa"
-                />
-                <CalendarOutlined className="advanced-search-date-icon" />
-              </div>
-              <span className="advanced-search-date-separator">até</span>
-              <div className="advanced-search-date-input-wrapper">
-                <input
-                  type="date"
-                  className="advanced-search-date-input"
-                  value={filters.dataFim}
-                  onChange={handleDataFimChange}
-                  placeholder="dd/mm/aaaa"
-                />
-                <CalendarOutlined className="advanced-search-date-icon" />
-              </div>
-            </div>
-            <div className="advanced-search-quick-dates">
-              <button
-                type="button"
-                className="advanced-search-quick-date-btn"
-                onClick={() => handleQuickDateRange('30dias')}
-              >
-                ÚLTIMOS 30 DIAS
-              </button>
-              <button
-                type="button"
-                className="advanced-search-quick-date-btn"
-                onClick={() => handleQuickDateRange('esteAno')}
-              >
-                ESTE ANO
-              </button>
+            <div className="advanced-search-field advanced-search-field-numero">
+              <label className="advanced-search-label">NÚMERO DO DOCUMENTO</label>
+              <input
+                type="text"
+                className="advanced-search-input"
+                placeholder="Ex.: IJ-018/2026"
+                value={filters.numeroDocumento}
+                onChange={handleNumeroChange}
+              />
             </div>
           </div>
         </div>

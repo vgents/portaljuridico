@@ -230,13 +230,11 @@ function GestaoGrupos() {
     <div className="gestao-grupos-container">
       <main className="gestao-grupos-main">
         <div className="gestao-grupos-content">
-          {/* Page Title */}
           <div className="gestao-grupos-page-header">
             <h1 className="gestao-grupos-page-title">Grupos</h1>
             <p className="gestao-grupos-page-subtitle">Gerencie grupos de trabalho e permissões</p>
           </div>
 
-          {/* Search and Pagination */}
           <div className="gestao-grupos-search-section">
             <div className="gestao-grupos-search-bar">
               <div className="gestao-grupos-search">
