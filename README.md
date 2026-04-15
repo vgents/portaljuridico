@@ -1,17 +1,78 @@
-# React + Vite
+📚 Portal Jurídico
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+O Portal Jurídico é uma aplicação web desenvolvida com React + Vite, com o objetivo de centralizar, organizar e facilitar o acesso a informações e documentos jurídicos de forma simples, rápida e eficiente.
 
-Currently, two official plugins are available:
+🚀 Tecnologias utilizadas
+React
+Vite
+JavaScript (ES6+)
+HTML5 & CSS3
+ESLint (padronização de código)
+📖 Sobre o projeto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+O Portal Jurídico foi criado para oferecer uma interface moderna e responsiva, permitindo que usuários acessem conteúdos jurídicos, realizem consultas e gerenciem informações relevantes.
 
-## React Compiler
+A aplicação utiliza o Vite para um ambiente de desenvolvimento rápido com HMR (Hot Module Replacement), proporcionando uma experiência ágil durante o desenvolvimento.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+⚙️ Como funciona
 
-## Expanding the ESLint configuration
+A aplicação é estruturada como uma SPA (Single Page Application):
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# portaljuridico
+O React gerencia os componentes e a interface
+O Vite realiza o build e serve a aplicação
+As páginas são carregadas dinamicamente sem recarregar o navegador
+Possibilidade de integração com APIs para dados jurídicos
+✨ Funcionalidades previstas
+📄 Consulta de documentos jurídicos
+🔍 Sistema de busca avançada
+👤 Autenticação de usuários
+📁 Upload e gerenciamento de arquivos
+📊 Dashboard com informações relevantes
+🧾 Histórico de consultas
+🌐 Integração com APIs externas
+📱 Interface responsiva (mobile e desktop)
+🛠️ Como rodar o projeto localmente
+
+Siga os passos abaixo para executar o projeto na sua máquina:
+
+1. Clone o repositório
+git clone https://github.com/seu-usuario/portaljuridico.git
+2. Acesse a pasta do projeto
+cd portaljuridico
+3. Instale as dependências
+npm install
+4. Execute o projeto
+npm run dev
+5. Acesse no navegador
+http://localhost:5173
+📦 Build para produção
+
+Para gerar a versão de produção:
+
+npm run build
+
+Para visualizar o build:
+
+npm run preview
+🔧 Configurações adicionais
+ESLint
+
+O projeto já possui uma configuração básica de ESLint. Para expandir:
+
+Utilize TypeScript (recomendado para produção)
+Adicione regras com typescript-eslint
+⚡ Plugins disponíveis
+@vitejs/plugin-react → Usa Babel para Fast Refresh
+@vitejs/plugin-react-swc → Usa SWC para Fast Refresh
+🧠 Observações
+O React Compiler não está habilitado por padrão devido ao impacto em performance.
+O projeto pode ser facilmente escalado para incluir TypeScript.
+🤝 Contribuição
+
+Contribuições são bem-vindas!
+
+Faça um fork do projeto
+Crie uma branch (git checkout -b minha-feature)
+Commit suas mudanças (git commit -m 'Minha nova feature')
+Faça um push (git push origin minha-feature)
+Abra um Pull Request
