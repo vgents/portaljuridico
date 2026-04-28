@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import {
   EnvironmentOutlined,
   MailOutlined,
@@ -6,7 +7,9 @@ import {
   YoutubeOutlined,
   FacebookOutlined,
   InstagramOutlined,
-  LinkedinOutlined
+  LinkedinOutlined,
+  BookOutlined,
+  FileTextOutlined
 } from '@ant-design/icons';
 import './AppFooter.css';
 
@@ -40,14 +43,25 @@ function AppFooter() {
 
         <div className="app-footer-links">
           <div className="app-footer-column">
-            <h4>Sobre o SESC</h4>
+            <h4>Links úteis</h4>
             <ul>
-              <li><a href="#">Transparência</a></li>
-              <li><a href="#">Notícias</a></li>
-              <li><a href="#">Credencial</a></li>
-              <li><a href="#">Trabalhe conosco</a></li>
-              <li><a href="#">Portal de compras</a></li>
-              <li><a href="#">Podcast</a></li>
+              <li>
+              <p className="app-footer-info">
+              <BookOutlined className="app-footer-icon" />
+                <a href="./treinamentos" aria-label="Email" >
+                  Treinamentos
+                </a>
+                </p>
+              </li>
+              <li>
+              <p className="app-footer-info">
+              <FileTextOutlined className="app-footer-icon" />
+                <a href="./termos-de-uso" aria-label="Email" >
+                  Termo de uso
+                </a>
+                </p>
+              </li>
+              
             </ul>
           </div>
 

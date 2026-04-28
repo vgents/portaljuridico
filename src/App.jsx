@@ -8,6 +8,7 @@ import GestaoColaboradores from './screens/GestaoColaboradores/GestaoColaborador
 import GestaoGrupos from './screens/GestaoGrupos/GestaoGrupos';
 import GestaoDocumentos from './screens/GestaoDocumentos/GestaoDocumentos';
 import GestaoMarcadores from './screens/GestaoMarcadores/GestaoMarcadores';
+import Treinamentos from './screens/Treinamentos/Treinamentos';
 import { initDb } from './db/documentosDb';
 import { initAcoesDb } from './db/acoesDb';
 import AppHeader from './components/AppHeader/AppHeader';
@@ -81,6 +82,7 @@ function App() {
         <Routes>
         <Route path="/" element={<Navigate to="/documentos" replace />} />
         <Route path="/documentos" element={<Dashboard user={user} onLogout={handleLogout} />} />
+        <Route path="/treinamentos" element={<Treinamentos />} />
         {user?.profile === 'Administrador' && (
           <Route path="/admin" element={<AdminLayout user={user} onLogout={handleLogout} />}>
             <Route index element={<AdminInicio />} />

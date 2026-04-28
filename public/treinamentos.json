@@ -1,0 +1,66 @@
+[
+  {
+    "id": "trein-001",
+    "titulo": "Introdução ao Portal Jurídico",
+    "descricao": "Conheça as principais funcionalidades do portal e aprenda a navegar entre documentos, categorias e filtros.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60",
+    "tags": "introducao, portal, navegacao, basico"
+  },
+  {
+    "id": "trein-002",
+    "titulo": "Como realizar buscas avançadas",
+    "descricao": "Aprenda a utilizar os filtros de busca avançada para encontrar documentos por tipo, categoria, status e período.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=60",
+    "tags": "busca, filtros, pesquisa, avancada"
+  },
+  {
+    "id": "trein-003",
+    "titulo": "Gestão de documentos jurídicos",
+    "descricao": "Passo a passo para administradores cadastrarem, editarem e publicarem documentos no sistema.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=60",
+    "tags": "gestao, documentos, administrador, cadastro"
+  },
+  {
+    "id": "trein-004",
+    "titulo": "Classificação de sigilo dos documentos",
+    "descricao": "Entenda os níveis de sigilo (público, interno, restrito) e como aplicá-los corretamente aos documentos.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=60",
+    "tags": "sigilo, classificacao, seguranca, confidencialidade"
+  },
+  {
+    "id": "trein-005",
+    "titulo": "Gestão de colaboradores e grupos",
+    "descricao": "Aprenda a cadastrar colaboradores, criar grupos e configurar permissões de acesso aos documentos.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=60",
+    "tags": "colaboradores, grupos, permissoes, acesso"
+  },
+  {
+    "id": "trein-006",
+    "titulo": "Marcadores, categorias e assuntos",
+    "descricao": "Organize sua base de conhecimento usando marcadores, categorias e assuntos para facilitar a recuperação de documentos.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1586282391129-76a6df230234?auto=format&fit=crop&w=800&q=60",
+    "tags": "marcadores, categorias, assuntos, organizacao"
+  },
+  {
+    "id": "trein-007",
+    "titulo": "Geração de relatórios e histórico",
+    "descricao": "Veja como gerar relatórios de uso e consultar o histórico de ações realizadas no sistema.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=60",
+    "tags": "relatorios, historico, auditoria, acoes"
+  },
+  {
+    "id": "trein-008",
+    "titulo": "Recursos de acessibilidade",
+    "descricao": "Conheça os recursos de acessibilidade disponíveis: modo escuro, ajuste de fonte e navegação por teclado.",
+    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    "imagemUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=60",
+    "tags": "acessibilidade, modo escuro, fonte, inclusao"
+  }
+]
